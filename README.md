@@ -1,5 +1,7 @@
 # Labeling Tool
 
+![labeling-tool](https://github.com/greencoffee1635/labeling-tool/blob/main/docs/resource/result.gif)
+
 ## 실행 방법
 
 ```bash
