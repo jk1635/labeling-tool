@@ -1,25 +1,45 @@
 import React from "react";
 import styled from "styled-components";
 
-import Button from "./Button";
+// recoil
+import { useRecoilState } from "recoil";
+import { boxState } from "../recoil/atoms";
+
+// components
+import { Button } from "./";
+
+// assets
 import { toolbarBoundingBox, toolbarPointer } from "../assets";
 
+// let id = 0;
+// const getId = () => {
+//   return id++;
+// };
+
 const Toolbar = () => {
+  const [boxes, setBoxes] = useRecoilState(boxState);
   return (
-    <Nav>
+    <ToolbarBox>
       <ButtonWrapper>
         <Button marginTop='8px' bg='var(--bggray)'>
           <img src={toolbarPointer} alt='toolbar-pointer' />
         </Button>
-        <Button marginTop='8px' bg='var(--bggray)'>
+        <Button
+          onClick={() => {
+            const id = new Date().toISOString();
+            setBoxes([...boxes, id]);
+          }}
+          marginTop='8px'
+          bg='var(--bggray)'
+        >
           <img src={toolbarBoundingBox} alt='toolbar-bounding-box' />
         </Button>
       </ButtonWrapper>
-    </Nav>
+    </ToolbarBox>
   );
 };
 
-const Nav = styled.nav`
+const ToolbarBox = styled.nav`
   position: absolute;
   top: 106px;
   width: 56px;

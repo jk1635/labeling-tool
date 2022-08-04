@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <HeaderWrapper>
+    <HeaderBox>
       <Text>Dataset Label</Text>
-    </HeaderWrapper>
+    </HeaderBox>
   );
 };
 
-const HeaderWrapper = styled.header`
+const HeaderBox = styled.header`
   display: flex;
   align-items: center;
   height: 64px;

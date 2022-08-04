@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --main: #5668D9;
     --white: #ffffff;
     --bordergray: #EBEDF2;
     --bggray: #fcfcfc;
@@ -12,9 +13,6 @@ const GlobalStyle = createGlobalStyle`
  
   * {
     box-sizing: border-box;
-    &:focus, &:active {
-      outline: none;
-    }
   }
   
   html {
@@ -25,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans', sans-serif;  
+    font-family: 'Noto Sans', sans-serif;   
   }
 
   div,

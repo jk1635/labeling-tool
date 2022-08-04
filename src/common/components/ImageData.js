@@ -2,37 +2,46 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const ImageData = () => {
+// components
+import { Loading, Error, NotFound } from "./";
+
+const ImageData = ({ children }) => {
   const baseURL = `https://source.unsplash.com`;
-  const [images, setImages] = useState([]);
+  const [image, setImage] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchImage() {
       try {
-        const response = await axios.get(
-          `${baseURL}/featured/?water,mountain/`
-        );
-        setImages(response.config.url);
-        console.log(response);
-      } catch (e) {
-        console.log(e);
-        setError(e);
+        setError(null);
+        setLoading(true);
+        const res = await axios.get(`${baseURL}/featured/?kids/`);
+        setImage(res.config.url);
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+        setError(err);
       }
+      setLoading(false);
     }
     fetchImage();
   }, []);
 
+  if (loading) return <Loading />;
+  if (error) return <Error />;
+  if (!image) return <NotFound />;
+
   return (
     <ImageWrapper>
-      <Image src={images} />
+      {children}
+      <Image src={image} />
     </ImageWrapper>
   );
 };
 
 const ImageWrapper = styled.section`
-  display: flex;
-  height: 100%;
+  position: relative;
   margin-left: 56px;
   border-left: 1px solid var(--bordergray);
 `;
@@ -40,8 +49,14 @@ const ImageWrapper = styled.section`
 const Image = styled.img`
   width: 100%;
   height: 973px;
-  background-image: url("images");
+  background-image: url("image");
   background-size: cover;
+  object-fit: cover;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 `;
 
 export default ImageData;

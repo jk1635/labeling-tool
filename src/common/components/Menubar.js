@@ -1,36 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
+// components
 import { minimizeIcon, maximizeIcon, quitIcon } from "../assets";
-import Button from "./Button";
+import { Button } from "./";
 
 const Menubar = () => {
   return (
-    <MenubarWrapper>
+    <MenubarBox>
       <ButtonWrapper>
         <Button bg='var(--bordergray)'>
-          <img
-            style={{ width: "35px" }}
-            src={minimizeIcon}
-            alt='minimize-button'
-          />
+          <Image src={minimizeIcon} alt='minimize-button' />
         </Button>
         <Button bg='var(--bordergray)'>
-          <img
-            style={{ width: "35px" }}
-            src={maximizeIcon}
-            alt='maximize-button'
-          />
+          <Image src={maximizeIcon} alt='maximize-button' />
         </Button>
         <Button bg='var(--bordergray)'>
-          <img style={{ width: "35px" }} src={quitIcon} alt='quit-button' />
+          <Image src={quitIcon} alt='quit-button' />
         </Button>
       </ButtonWrapper>
-    </MenubarWrapper>
+    </MenubarBox>
   );
 };
 
-const MenubarWrapper = styled.section`
+const MenubarBox = styled.section`
   border-bottom: 1px solid #d5d9e2;
   background: var(--bordergray);
 `;
@@ -38,6 +31,10 @@ const MenubarWrapper = styled.section`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+const Image = styled.img`
+  width: 35px;
 `;
 
 export default Menubar;

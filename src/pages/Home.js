@@ -1,11 +1,20 @@
 import React from "react";
-import ImageData from "../common/components/ImageData";
+
+// recoil
+import { useRecoilValue } from "recoil";
+import { boxState } from "../common/recoil/atoms";
+
+// components
+import { ImageData, LabelingBox } from "../common/components";
 
 const Home = () => {
+  const boxes = useRecoilValue(boxState);
   return (
-    <div>
-      <ImageData />
-    </div>
+    <ImageData>
+      {boxes.map(box => (
+        <LabelingBox key={box} />
+      ))}
+    </ImageData>
   );
 };
 

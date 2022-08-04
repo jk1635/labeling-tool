@@ -1,14 +1,18 @@
 import React from "react";
-import Header from "./common/components/Header";
-import Menubar from "./common/components/Menubar";
-import Template from "./common/components/Template";
-import Toolbar from "./common/components/Toolbar";
 import GlobalStyle from "./common/styles/Globalstyle";
+
+// recoil
+import { RecoilRoot } from "recoil";
+
+// pages
 import Home from "./pages/Home";
+
+// components
+import { Header, Menubar, Template, Toolbar } from "./common/components";
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyle />
       <Template>
         <Menubar />
@@ -16,7 +20,7 @@ function App() {
         <Toolbar />
         <Home />
       </Template>
-    </>
+    </RecoilRoot>
   );
 }
 
