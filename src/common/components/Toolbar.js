@@ -21,10 +21,11 @@ const Toolbar = () => {
   return (
     <ToolbarBox>
       <ButtonWrapper>
-        <Button marginTop='8px' bg='var(--bggray)'>
+        <Button hover marginTop='8px' bg='var(--bggray)'>
           <img src={toolbarPointer} alt='toolbar-pointer' />
         </Button>
         <Button
+          hover
           onClick={() => {
             const id = new Date().toISOString();
             setBoxes([...boxes, id]);

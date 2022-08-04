@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     --bordergray: #EBEDF2;
     --bggray: #fcfcfc;
     --black: #141746;
+    --gray: #D5D9E2;
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');

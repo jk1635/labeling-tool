@@ -9,13 +9,13 @@ const Menubar = () => {
   return (
     <MenubarBox>
       <ButtonWrapper>
-        <Button bg='var(--bordergray)'>
+        <Button hover bg='var(--bordergray)'>
           <Image src={minimizeIcon} alt='minimize-button' />
         </Button>
-        <Button bg='var(--bordergray)'>
+        <Button hover bg='var(--bordergray)'>
           <Image src={maximizeIcon} alt='maximize-button' />
         </Button>
-        <Button bg='var(--bordergray)'>
+        <Button hover bg='var(--bordergray)'>
           <Image src={quitIcon} alt='quit-button' />
         </Button>
       </ButtonWrapper>
@@ -24,7 +24,7 @@ const Menubar = () => {
 };
 
 const MenubarBox = styled.section`
-  border-bottom: 1px solid #d5d9e2;
+  border-bottom: 1px solid var(--gray);
   background: var(--bordergray);
 `;
 

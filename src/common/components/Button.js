@@ -2,8 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = props => {
-  const { onClick, children, size, margin, marginTop, padding, bg, cursor } =
-    props;
+  const {
+    onClick,
+    children,
+    size,
+    margin,
+    marginTop,
+    padding,
+    bg,
+    cursor,
+    hover,
+  } = props;
 
   const styles = {
     onClick,
@@ -14,6 +23,7 @@ const Button = props => {
     padding,
     bg,
     cursor,
+    hover,
   };
 
   return (
@@ -39,6 +49,13 @@ const ElButton = styled.button`
   ${props => (props.marginTop ? `margin-top: ${props.marginTop};` : "")}
   ${props => (props.padding ? `margin: ${props.padding};` : "")}
   ${props => (props.bg ? `background-color: ${props.bg};` : "")}
+  ${props => (props.bg ? `background-color: ${props.bg};` : "")}
+  ${props =>
+    props.hover
+      ? `&:hover {
+      background-color: var(--gray);
+    }`
+      : ""}
   cursor: pointer;
 `;
 
